@@ -113,22 +113,43 @@
 
 5. 创建子模块
 
-   ​	![1557591358733](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块1.png)
+   - commom模块
 
-   <br>
+     > 该模块用于开发配置项目所用到的工具类，它将聚合到其他模块。
 
-   - pojo模块
+     ![1557632763053](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块1.png)
 
-     > pojo模块里开发配置了项目所用到的所有实体类，其他模块例如后台模块查询数据返回需要实体类去承载，所以可通过聚合方式来引入该pojo模块（添加Jar依赖）。
+     ![1557632801254](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块2.png)
 
-     ​	![1557591514522](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块2.png)
+     ![1557632906124](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块3.png)
 
-     ![1557591631127](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块3.png)
-
-     ![1557591882873](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块4.png)
+     ![1557632997542](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块4.png)
 
      ---
 
-   - mapper模块
+   - rest模块
 
-     > 该模块用于开发配置Mybatis的映射文件和对应的映射类（dao层）
+     > 该模块用于项目支持各种客户端，如PC，Android、IOS。
+     >
+     > 这里暂时不管打包形式。
+
+   - redis模块
+
+     > 缓存模块，复制项目缓存，提高项目的性能。
+
+   - search模块
+
+     > 搜索模块，商城搜索商品或其他信息。
+
+   - sso模块
+
+     > 单点登陆模块，一点登陆，多处权访。
+
+   - manager模块
+
+     > 后台管理系统模块。
+
+     ![1557634009279](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块5.png)
+
+     
+
