@@ -8,9 +8,9 @@
 
 1. 创建空的Maven项目（不使用Maven模版）
 
-   ![1557587811016](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建项目1.png)
+   ![1557587811016](.\img\创建项目1.png)
 
-   ![1557587907420](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建项目2.png)
+   ![1557587907420](.\img\创建项目2.png)
 
    ---
 
@@ -18,17 +18,17 @@
 
    > 因为该空项目是用于管理项目模块的，不需要代码，即是充当目录用的。
 
-   ![1557588078566](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建项目3.png)
+   ![1557588078566](.\img\创建项目3.png)
 
    ---
 
 3. 创建父模块
 
-   ![1557588257866](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建父模块1.png)
+   ![1557588257866](.\img\创建父模块1.png)
 
-   ![1557588304081](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建父模块2.png)
+   ![1557588304081](.\img\创建父模块2.png)
 
-   ![1557589183948](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建父模块3.png)
+   ![1557589183948](.\img\创建父模块3.png)
 
 4. 父模块pom进行配置
 
@@ -117,13 +117,13 @@
 
      > 该模块用于开发配置项目所用到的工具类，它将聚合到其他模块。
 
-     ![1557632763053](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块1.png)
+     ![1557632763053](.\img\创建子模块1.png)
 
-     ![1557632801254](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块2.png)
+     ![1557632801254](.\img\创建子模块2.png)
 
-     ![1557632906124](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块3.png)
+     ![1557632906124](.\img\创建子模块3.png)
 
-     ![1557632997542](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块4.png)
+     ![1557632997542](.\img\创建子模块4.png)
 
      ---
 
@@ -149,7 +149,86 @@
 
      > 后台管理系统模块。
 
-     ![1557634009279](D:\ChangefunStudy\JAVA_FrameWork_NOTE\SSM整合\文字笔记\img\创建子模块5.png)
+     ![1557634009279](.\img\创建子模块5.png)
 
      
 
+---
+
+## manager模块
+
+> 后台管理系统是一个web应用，需要将它配置成web应用。
+>
+> 将web应用的三层MVC架构分为子模块配置。
+>
+> 依赖关系：web>service>mapper>pojo
+
+- pojo模块
+
+  > 实体类模块，manager需要用到的所有实体类。
+
+  ![1557635008653](.\img\manager模块.png)
+
+  ![1557635097793](.\img\manager模块2.png)
+
+  ![1557635281588](.\img\manager模块3.png)
+
+  ---
+
+- mapper模块
+
+  > 该模块用于配置mybatis使用到的查询映射文件和dao接口，属于dao层，负责查询数据库。
+  >
+  > 该模块将聚合到service模块作为依赖，同时该模块也聚合了pojo模块。
+
+  ![1557635689581](.\img\manager模块4.png)
+
+  ---
+
+- service模块
+
+  > 业务层模块，依赖mapper模块，也作为web模块的依赖。还依赖pojo模块。
+  >
+  > pojo模块由于被mapper模块引入，servies模块引入mapper模块后也间接引入pojo模块。
+
+  ![1557636394493](.\img\manager模块5.png)
+
+  ---
+
+- web模块
+
+  > 该模块为web应用，将使用springmvc面向客户端请求。
+  >
+  > 依赖于service模块。
+
+  - 创建模块后
+
+    - 创建模块后
+
+      ![1557640546788](.\img\manager模块6.png)
+
+    - 配该模块为web应用
+
+      ![1557640777132](.\img\manager模块7.png)
+
+      ![1557640975159](.\img\manager模块8.png)
+
+      ![1557641175303](.\img\manager模块9.png)
+
+      ![1557641310772](.\img\manager模块10.png)
+
+    - 配置Tomcat服务器程序
+
+      ![1557641396886](.\img\manager模块11.png)
+
+      ![1557641453615](.\img\manager模块12.png)
+
+      ![1557641525502](.\img\manager模块13.png)
+
+      ![1557641617226](.\img\manager模块14.png)
+
+      ![1557641761051](.\img\manager模块15.png)
+
+      > 阶段性测试：点击绿色播放按钮运行web应用，成功后浏览器自动打开index.jsp。
+      >
+      > 虽然该模块pom没有配置编译等插件，但maven默认有基本插件帮助我们完成这一系列工作。
